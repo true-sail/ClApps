@@ -5,51 +5,90 @@ const ListItem = ({ imageSource, text, date }) => {
   return (
     <View style={styles.itemContainer}>
 
-        <View style={styles.leftContainer}>
+      <View style={styles.upperContainer}>
+        <View style={styles.fromUserStyle}>
           <Image
             source={{ uri: imageSource }}
-            style={{ width: 100, height: 100 }}
+            style={{ width: 35, height: 35 }}
           />
-          
         </View>
-
-        <View style={styles.rightContainer}>
-          <Text numberOfLines={3} style={styles.textStyle}>
-            {text}
-          </Text>
-          <Text style={styles.dateStyle}>
-            {date}
-          </Text>
+        <Text style={styles.arrowStyle}>→</Text>
+        <View style={styles.toUserStyle}>
+          <Image
+            source={{ uri: imageSource }}
+            style={{ width: 35, height: 35 }}
+          />
         </View>
+      </View>  
 
+      <View style={styles.middleContainer}>
+        <Text numberOfLines={2} style={styles.textStyle}>
+          {text}
+        </Text>
       </View>
+
+
+
+      <View style={styles.lowerContainer}>
+
+        <Text>
+          claps
+        </Text>  
+        <Text style={styles.dateStyle}>
+          {date}
+        </Text>
+      </View>
+
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
 
   itemContainer: {
-    height: 100,
+    height: 110,
     width: '100%',
     borderColor: 'gray',
-    borderWidth: 1,
-    // 縦並びrow,横並びcolumn
-    flexDirection: 'row',
-  },
-
-  leftContainer: {
-    width: 100,
-  },
-
-  rightContainer: {
-    flex: 1,
+    borderWidth: 0.5,
+    // 横並びrow,縦並びcolumn
     flexDirection: 'column',
-    padding: 10,
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
+    padding: 5,
+  },
+
+  upperContainer: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    padding: 5,
+  
+  },
+
+  fromUserStyle: {
+  },
+
+  arrowStyle: {
+    fontSize: 20,
+    padding: 6,
+  },
+
+  toUserStyle: {
+
+  },
+
+  middleContainer: {
+    alignItems: 'center',
+    padding: 5,
   },
 
   textStyle: {
     fontSize: 15,
+    
+  },
+
+  lowerContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 3,
   },
 
   dateStyle: {
