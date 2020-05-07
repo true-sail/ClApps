@@ -1,11 +1,23 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, FlatList, SafeAreaView } from 'react-native';
+import ListItem from './components/ListItem';
+import posts from './dummies/posts';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <FlatList 
+        data={posts} // 表示したいデータの配列
+        renderItem={({ item }) => (
+          <ListItem  // 表示したい配列の1項目
+          imageSource={item.imageSource}
+          text={item.text}
+          date={item.date}
+          /> 
+        )}
+        keyExtractor={(item, index) => index.toString()}
+      />
+    </SafeAreaView>
   );
 }
 
@@ -13,7 +25,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
