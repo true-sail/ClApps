@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 
 const ListItem = ({ imageSource, text, date }) => {
   return (
+    
     <View style={styles.itemContainer}>
 
       <View style={styles.upperContainer}>
@@ -27,10 +28,7 @@ const ListItem = ({ imageSource, text, date }) => {
         </Text>
       </View>
 
-
-
       <View style={styles.lowerContainer}>
-
         <Text>
           claps
         </Text>  
@@ -40,6 +38,7 @@ const ListItem = ({ imageSource, text, date }) => {
       </View>
 
     </View>
+
   );
 }
 
@@ -54,48 +53,37 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-around',
     padding: 5,
+    flex: 1
   },
-
   upperContainer: {
     flexDirection: 'row',
     alignItems: 'flex-start',
     padding: 5,
-  
   },
-
   fromUserStyle: {
   },
-
   arrowStyle: {
     fontSize: 20,
     padding: 6,
   },
-
   toUserStyle: {
-
   },
-
   middleContainer: {
     alignItems: 'center',
     padding: 5,
   },
-
   textStyle: {
     fontSize: 15,
-    
   },
-
   lowerContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 3,
   },
-
   dateStyle: {
     fontSize: 10,
     color: 'gray',
   }
-
 
 });
 
