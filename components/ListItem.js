@@ -3,8 +3,8 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 
 const ListItem = ({ imageSource, text, date }) => {
   return (
-    
-    <View style={styles.itemContainer}>
+
+    <View style={styles.listContainer}>
 
       <View style={styles.upperContainer}>
         <View style={styles.fromUserStyle}>
@@ -40,11 +40,11 @@ const ListItem = ({ imageSource, text, date }) => {
     </View>
 
   );
-}
+};
 
 const styles = StyleSheet.create({
 
-  itemContainer: {
+  listContainer: {
     height: 110,
     width: '100%',
     borderColor: 'gray',
