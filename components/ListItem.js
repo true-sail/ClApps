@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
 const ListItem = ({ imageSource, text, date }) => {
   return (
@@ -29,9 +29,16 @@ const ListItem = ({ imageSource, text, date }) => {
       </View>
 
       <View style={styles.lowerContainer}>
-        <Text>
-          claps
-        </Text>  
+        <View style={styles.claps}>
+          <TouchableOpacity>
+            <Image 
+              source={require('../assets/clap-hands.png')}
+              style={{ height: 22, width:22 }}
+            />
+          </TouchableOpacity>
+          {/* 拍手の数 */}
+          <Text style={styles.clapNum}>0</Text>
+         </View>
         <Text style={styles.dateStyle}>
           {date}
         </Text>
@@ -45,7 +52,7 @@ const ListItem = ({ imageSource, text, date }) => {
 const styles = StyleSheet.create({
 
   listContainer: {
-    height: 110,
+    height: 120,
     width: '100%',
     borderColor: 'gray',
     borderWidth: 0.5,
@@ -78,7 +85,18 @@ const styles = StyleSheet.create({
   lowerContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     padding: 3,
+  },
+  claps: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingLeft: 5,
+
+  },
+  clapNum: {
+    fontSize: 13,
+    marginLeft: 5
   },
   dateStyle: {
     fontSize: 10,

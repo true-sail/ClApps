@@ -1,7 +1,9 @@
-import React from 'react';
-import { View, Text, Image, StyleSheet, Button } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, Image, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 
-const TextInput = () => {
+const Post = () => {
+  const [content, inputContent] = useState('アイウエオ'); 
+
   return (
     <View style={styles.postContainer}>
       <Text style={styles.messageStyle}>
@@ -20,14 +22,21 @@ const TextInput = () => {
           <Text style={styles.nameStyle}>Taro</Text>
         </View>
 
-        <View style={styles.middlePost}>
-          {/* textField */}
-        </View>
+        {/* textField */}
+        <TextInput
+          multiline 
+          style={styles.middlePost}
+          placeholder='ここに入力してください'
+          onChangeText={(val) => inputContent(val)}
+        >
+          <Text>{content}</Text>
+        </TextInput>
 
-        <View style={styles.rightPost}>
-          {/* 投稿ボタン */}
-          <Button title='投稿' />
-        </View>
+
+        {/* 投稿ボタン */}
+        <TouchableOpacity　style={styles.rightPost}>
+          <Text style={styles.buttonTitleStyle}>投稿</Text>
+        </TouchableOpacity>
 
       </View>
 
@@ -72,6 +81,9 @@ const styles = StyleSheet.create({
     width: 220,
     backgroundColor: 'white',
     justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: '#777',
+    padding: 5,
   },
   rightPost: {
     backgroundColor: '#68a9cf',
@@ -79,8 +91,13 @@ const styles = StyleSheet.create({
     width: 55,
     marginHorizontal: 6,
     justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonTitleStyle: {
+    color: 'white',
+    fontSize: 18,
   },
 
 });
 
-export default TextInput;
+export default Post;

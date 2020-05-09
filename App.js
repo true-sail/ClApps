@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, FlatList, SafeAreaView, Image, Text } from 'react-native';
 import Header from './components/Header';
-import TextInput from './components/TextInput';
+import Post from './components/Post';
 import ListItem from './components/ListItem';
 import posts from './dummies/posts';
 
@@ -14,7 +14,7 @@ export default function App() {
       <Header/>
 
       {/* 投稿欄 */}
-      <TextInput />
+      <Post/>
       
       {/* 表示欄 */}
       <FlatList 
