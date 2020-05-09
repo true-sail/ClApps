@@ -38,6 +38,7 @@ import { StyleSheet, Text, View, Image } from 'react-native';
       alignItems: 'center',
       justifyContent: 'space-around',
       padding: 5,
+      marginLeft: 5
     },
     nameStyle: {
       fontSize: 13,

@@ -1,18 +1,19 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 
 const Post = () => {
-  const [content, inputContent] = useState('アイウエオ'); 
+  const [content, onChangeText] = React.useState('Useless Placeholder');
 
   return (
     <View style={styles.postContainer}>
+
       <Text style={styles.messageStyle}>
         あなたの仲間のステキな行動を褒めようゼ!
       </Text>
 
       <View style={styles.squaresContainer}>
 
-          <Text style={styles.arrowStyle}>→</Text>
+        <Text style={styles.arrowStyle}>→</Text>
 
         <View style={styles.leftPost}>
           <Image 
@@ -22,16 +23,16 @@ const Post = () => {
           <Text style={styles.nameStyle}>Taro</Text>
         </View>
 
-        {/* textField */}
         <TextInput
-          multiline 
+        // style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
           style={styles.middlePost}
-          placeholder='ここに入力してください'
-          onChangeText={(val) => inputContent(val)}
-        >
-          <Text>{content}</Text>
-        </TextInput>
-
+          multiline
+          minLength={5}
+          editable
+          maxLength={40} // 最長
+          onChangeText={text => onChangeText(text)}
+          value={content}
+        />
 
         {/* 投稿ボタン */}
         <TouchableOpacity　style={styles.rightPost}>
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
     marginLeft: 5,
   },
   messageStyle: {
-    fontSize: 17,
+    fontSize: 15,
     margin: 3,
     paddingLeft: 5,
   },

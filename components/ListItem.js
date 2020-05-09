@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
 const ListItem = ({ imageSource, text, date }) => {
+
+  const [clapNum, countClaps] = useState(0);
+  const onPress = () => countClaps(prevCount => prevCount + 1);
+
   return (
 
     <View style={styles.listContainer}>
@@ -30,14 +34,14 @@ const ListItem = ({ imageSource, text, date }) => {
 
       <View style={styles.lowerContainer}>
         <View style={styles.claps}>
-          <TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={onPress}>
             <Image 
               source={require('../assets/clap-hands.png')}
               style={{ height: 22, width:22 }}
             />
           </TouchableOpacity>
           {/* 拍手の数 */}
-          <Text style={styles.clapNum}>0</Text>
+          <Text style={styles.clapNum}>{clapNum}</Text>
          </View>
         <Text style={styles.dateStyle}>
           {date}
