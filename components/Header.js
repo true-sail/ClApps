@@ -1,17 +1,37 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native'; 
+import { StyleSheet, Text, View, Image, Dropdown } from 'react-native';
+import ModalDropdown from 'react-native-modal-dropdown';
+// import users from '../objects/users';
+
       
-  const Header = () => {
+  const Header = props => {
+
+    
     return (
+
+
 
       <View style={styles.headerContainer}>
 
 
       <View style={styles.leftHederStyle}>
+      
+      {/* <ModalDropdown options={['option1', 'option2', 'option3', 'option4']}>
         <Image 
           source={require('../assets/loremImage.jpg')}
           style={{ width: 40, height: 40 }} 
         />
+      </ModalDropdown> */}
+
+      <ModalDropdown  
+        options={['a', 'b']}
+      >
+        <Image 
+          source={require('../assets/loremImage.jpg')}
+          style={{ width: 40, height: 40 }} 
+        />
+      </ModalDropdown>
+
         <Text style={styles.nameStyle}>太郎</Text>
       </View>
 
@@ -24,6 +44,8 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 
     );
   };
+
+ 
 
   const styles = StyleSheet.create({
     
