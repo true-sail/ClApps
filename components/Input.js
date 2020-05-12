@@ -11,7 +11,7 @@ const Input = ({ label, value, onChangeText, placeholder }) => {
         placeholder={placeholder}
         autoCorrect={false}
         style={inputStyle}
-        value={value}
+        value={`${value}`}
         onChangeText={onChangeText}
       />
     </View>
