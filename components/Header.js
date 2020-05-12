@@ -4,27 +4,17 @@ import ModalDropdown from 'react-native-modal-dropdown';
 // import users from '../objects/users';
 
       
-  const Header = props => {
-
+  const Header = (props) => {
     
     return (
-
-
 
       <View style={styles.headerContainer}>
 
 
       <View style={styles.leftHederStyle}>
-      
-      {/* <ModalDropdown options={['option1', 'option2', 'option3', 'option4']}>
-        <Image 
-          source={require('../assets/loremImage.jpg')}
-          style={{ width: 40, height: 40 }} 
-        />
-      </ModalDropdown> */}
 
       <ModalDropdown  
-        options={['a', 'b']}
+        options={[props.value]}
       >
         <Image 
           source={require('../assets/loremImage.jpg')}
@@ -45,8 +35,18 @@ import ModalDropdown from 'react-native-modal-dropdown';
     );
   };
 
- 
-
+  const getData = async () => {
+    try {
+      const value = await AsyncStorage.getItem('name');
+      if (value !== null) {
+        Alert.alert('getData() returned value: ' + value);
+      } else {
+        Alert.alert('getData() did not return value');
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
   const styles = StyleSheet.create({
     
     headerContainer: {

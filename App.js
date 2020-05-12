@@ -1,35 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View, FlatList, SafeAreaView, Image, Text, AsyncStorage, KeyboardAvoidingView, Platform,TextInput, Button, Alert } from 'react-native';
 import Header from './components/Header';
 import Post from './components/Post';
 import ListItem from './components/ListItem';
 import posts from './dummies/posts';
-import Users from './objects/Users';
-import Registration from './components/Registration';
+import UserList from './components/UserList';
+import ModalDropdown from 'react-native-modal-dropdown';
+
+
 export default function App() {
+
+const [users, setUsers] = useState([])
+
 
   return (
 
     <SafeAreaView style={styles.container}>
-
-
-    <Registration/>
+      {/* <Registration/> */}
       {/* <Test/> */}
 
+      <UserList/>
+      {/* <ModalDropdown/> */}
       {/* ヘッダー */}
-      <Header>
-        {/* // data={users}
-        // userName={userName}
-        // userImageSource={userImageSource}
-        // clapNum={clapNum}
-        // clappedNum={clappedNum} */}
-
-
-      </Header>
+      {/* <Header/> */}
 
       {/* 投稿欄 */}
-      <Post/>
-      <Users/>
+      {/* <Post/> */}
+   
 
       {/* 表示欄 */}
       {/* <FlatList 

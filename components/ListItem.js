@@ -6,6 +6,8 @@ const ListItem = ({ imageSource, text, date }) => {
   const [clapNum, countClaps] = useState(0);
   const onPress = () => countClaps(prevCount => prevCount + 1);
 
+
+
   return (
 
     <View style={styles.listContainer}>
