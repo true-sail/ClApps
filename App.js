@@ -10,9 +10,6 @@ import ModalDropdown from 'react-native-modal-dropdown';
 
 export default function App() {
 
-const [users, setUsers] = useState([])
-
-
   return (
 
     <SafeAreaView style={styles.container}>
