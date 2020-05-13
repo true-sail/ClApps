@@ -4,8 +4,13 @@ import { View, TextInput, Text, Button, Alert, AsyncStorage } from 'react-native
 class UserList extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
-      email: ['']};
+
+    this.state = {
+      id: Math.random(),
+      name: '',
+    };
+    // this.userList = [];
+
       
   }
 
@@ -13,21 +18,21 @@ class UserList extends Component {
 
 
   onPressHandler = () => {
-    this.storeData(this.state.email);
+    this.storeData(this.state.name);
   };
 
-  checkData = () => {
-    this.getData()
-  }
+  // checkData = () => {
+  //   this.getData()
+  // }
 
   // データ保存
-  storeData = async (email) => {
-    if (email == '') {
-      Alert.alert('emailを入力してください');
+  storeData = async (name) => {
+    if (name == '') {
+      Alert.alert('空欄を入力してください');
       return;
     } else {
       try {
-        await AsyncStorage.setItem('email', email);
+        await AsyncStorage.setItem('name', name);
         Alert.alert('登録しました！');
         console.log(this.state);
       } catch (error) {
@@ -36,29 +41,15 @@ class UserList extends Component {
     }
   };
 
-  // データ取得
-  // getData = async () => {
-  //   try{
-  //     const value = await AsyncStorage.getItem('email');
-  //     if(value !== null){
-  //       Alert.alert("ユーザーのデータを取得しました。");
-  //     }else{
-  //       Alert.alert("ユーザーが登録されていません。");
-  //     }
-  //   }catch(error){
-  //     console.log(error);
-  //   }
-  // };
-
   render() {
     return (
       <View>
-        <Text>emailを登録してください</Text>
+        <Text>名前を登録してください</Text>
         <TextInput
-          placeholder='user@gmail.com'
-          label='Email'
-          value={this.state.email}
-          onChangeText={(email) => this.setState({ email })}
+          placeholder='日本太郎'
+          label='名前'
+          value={this.state.name}
+          onChangeText={(name) => this.setState({ name })}
         />
         <Button title='登録する' onPress={this.onPressHandler} />
       </View>

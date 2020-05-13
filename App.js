@@ -16,17 +16,17 @@ export default function App() {
       {/* <Registration/> */}
       {/* <Test/> */}
 
-      <UserList/>
+      {/* <UserList/> */}
       {/* <ModalDropdown/> */}
       {/* ヘッダー */}
-      {/* <Header/> */}
+      <Header/>
 
       {/* 投稿欄 */}
-      {/* <Post/> */}
+      <Post/>
    
 
       {/* 表示欄 */}
-      {/* <FlatList 
+      <FlatList 
         data={posts} // 表示したいデータの配列
         renderItem={({ item }) => (
           <ListItem  // 表示したい配列の1項目
@@ -36,7 +36,7 @@ export default function App() {
           /> 
         )}
         keyExtractor={(item, index) => index.toString()}
-      /> */}
+      />
 
     </SafeAreaView>
   );
